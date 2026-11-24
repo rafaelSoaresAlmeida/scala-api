@@ -1,0 +1,10 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# UserController
+POST    /users                  controllers.UserController.addUser()
+GET     /users                  controllers.UserController.getAll()
+GET     /users/name/:name       controllers.UserController.getByName(name: String)
+DELETE  /users/:id              controllers.UserController.deleteUser(id: Long)
