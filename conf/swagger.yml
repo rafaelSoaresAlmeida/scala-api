@@ -1,0 +1,5 @@
+openapi: 3.0.0
+info:
+  title: API Play Scala
+  version: "1.0.0"
+  description: Automatic documentation generate by play-swagger

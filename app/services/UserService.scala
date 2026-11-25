@@ -15,7 +15,11 @@ class UserService @Inject()(userRepository: UserRepository)(implicit ec: Executi
 
   def addUser(user: User): Future[User] = {
     auditLogger.info("Adding User")
-    userRepository.add(user)
+    userRepository.add(user).recoverWith {
+      case ex: Throwable =>
+        auditLogger.error("Error in adding user", ex)
+        Future.failed(InternalServerException("Error to add user"))
+    }
   }
 
   def getAll: Future[Seq[User]] = {
