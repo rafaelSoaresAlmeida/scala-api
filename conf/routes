@@ -4,7 +4,10 @@
 # ~~~~
 
 # UserController
-POST    /users                  controllers.UserController.addUser()
-GET     /users                  controllers.UserController.getAll()
-GET     /users/name/:name       controllers.UserController.getByName(name: String)
-DELETE  /users/:id              controllers.UserController.deleteUser(id: Long)
+POST     /api/users                  controllers.UserController.addUser()
+GET      /api/users                  controllers.UserController.getAll()
+GET      /api/users/name/:name       controllers.UserController.getByName(name: String)
+DELETE   /api/users/:id              controllers.UserController.deleteUser(id: Long)
+
+# AuthController
+POST    /api/login      controllers.AuthController.login()
