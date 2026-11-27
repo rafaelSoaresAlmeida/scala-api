@@ -15,7 +15,6 @@ class AuthController @Inject()(
                                 jwtAuthAction: JwtAuthAction
                               )(implicit ec: ExecutionContext) extends AbstractController(cc) {
 
-  // Endpoint público para gerar o token
   def login(): Action[JsValue] = Action.async(parse.json) { request =>
     val user = (request.body \ "user").asOpt[String]
     val password = (request.body \ "password").asOpt[String]

@@ -3,28 +3,16 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
-# UserController
-POST     /api/users                  controllers.UserController.addUser()
-GET      /api/users                  controllers.UserController.getAll()
-
-###
-# summary: Get an user by name
-# responses:
-#   200:
-#     description: User found
-#     content:
-#       application/json:
-#         schema:
-#           $ref: '#/components/schemas/models.User'
-###
-GET      /api/users/name/:name       controllers.UserController.getByName(name: String)
-
-DELETE   /api/users/:id              controllers.UserController.deleteUser(id: Long)
-
 # AuthController
 POST    /api/login      controllers.AuthController.login()
 
-#Swagger
+# UserController
+POST     /api/users                  controllers.UserController.addUser()
+GET      /api/users                  controllers.UserController.getAll()
+GET      /api/users/name/:name       controllers.UserController.getByName(name: String)
+DELETE   /api/users/:id              controllers.UserController.deleteUser(id: Long)
+
+# Swagger Documentation
 GET   /docs/              controllers.Assets.at(path="/public/swagger-ui", file="index.html")
 GET   /docs/swagger.json  controllers.Assets.at(path="/public", file="swagger.json")
 GET   /docs/*file         controllers.Assets.at(path="/public/swagger-ui", file)
